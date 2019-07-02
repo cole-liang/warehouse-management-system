@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+
+/*页面层容器*/
+#container {
+    margin:0 auto;
+}
+
+/*里层*/
+#inner{
+    position: absolute;
+    width:100%;
+    z-index: -1;
+}
+
+/*页面头部*/
+#header {
+    width: 100%;
+    height: 10%;
+    border-bottom:black solid 2px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#basicInfo {
+    margin:0;
+}
+
+#basicInfo span{
+    padding-right: 2%;
+}
+
+/*页面主体*/
+#pageBody {
+    width:100%;
+    height:550px;
+    margin:0 auto;
+    border:black double 3px;
+}
+
+table{
+    width:100%;
+    /*height:;*/
+}
+
+th,td{
+    padding:0.5% 0;
+}
+
+#edit{
+    padding-right:7%;
+}
+
+/*外层*/
+#outer1,#outer2 {
+    width: 100%;
+    height: 700px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px black solid;
+    z-index: 1;
+    positon:absolute;
+}
+
+.inputInfo{
+    width: 45%;
+    height: 430px;
+    margin: 0 auto;
+    margin-top: 15%;
+    display: block;
+    background-color: white;
+    border:5px red double;
+    z-index:2;
+}
+
+.dragZone{
+    width: 100%;
+    height:30px;
+    display: block;
+    background-color: #ff971b;
+}
+
+.closeInput{
+    float:right;
+    margin-top:1.5%;
+}
+
+.tip{
+    color: red;
+}
+
+.addInfo,#remark1,#remark2,.validateProId,.validateAmount{
+    margin-left:14%;
+    padding:0;
+}
+
+.validateProId,.validateAmount,.validateDept{
+    color:red;
+    font-size: small;
+}
+
+#remark1,#remark2{
+    resize: none;
+}
+
+#inputOk1,#inputOk2{
+    margin-left: 33%;
+}
+
+#inputOk1,.reset,#cancel1,#inputOk2,.reset,#cancel2{
+    margin-top:4%;
+}

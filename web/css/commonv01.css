@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+/*--------------------------表格--------------------------*/
+table,td,th {
+    border:1px black solid;
+    border-collapse: collapse;
+}
+
+table {
+    margin:0 auto;
+}
+
+td,th {
+    text-align: center;
+    padding:10px 20px;
+    /*color:red;*/
+    /*font-weight: bold;*/
+}
+
+th {
+    background-color: #ffc162;
+}
+
+#prev,#page,#next{
+    float: left;
+    padding-top:2%;
+}
+
+#prev {
+    margin-left:65%;
+}
+
+#page {
+    margin:0 3%;
+}
+/*--------------------------表格--------------------------*/

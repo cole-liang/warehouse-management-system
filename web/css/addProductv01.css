@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top:7%;
+    margin-left: 31%;
+    border-bottom: #ff8a1b 2px double;
+    padding:1% 0;
+    width:40%;
+}
+
+.tip{
+    color: red;
+}
+
+.addInfo{
+    font-size: large;
+    margin-left:35%;
+    padding:0;
+}
+
+.validate,.validateProInfo{
+    font-size:small;
+    color: red;
+}
+
+.validateProInfo{
+    margin-left:35%;
+}
+
+#inputOk1{
+    margin-left: 42%;
+}
+
+#inputOk1,.reset,#cancel1{
+    margin-top:0;
+}

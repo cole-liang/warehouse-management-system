@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+
+/*基本信息*/
+body {}
+
+/*页面层容器*/
+#container {
+    width:1200px;
+    height:1000px;
+    margin:0 auto;
+}
+
+/*页面头部*/
+#Header {
+    width:100%;
+    margin:0 auto;
+    height:15%;
+    border-bottom: ridge black 5px;
+    float: left;
+}
+
+#title {
+    text-align:center;
+    font-size: xx-large;
+    font-weight: bold;
+    color: cornsilk;
+    text-shadow: 5px 5px 5px darkgray;
+    float:left;
+    margin-left: 35%;
+    margin-top:5%;
+}
+
+#Header ul {
+    list-style-type:none;
+    margin-top:9%;
+    margin-left:87%;
+    padding:0;
+    font-size: small;
+}
+
+#Header ul li {
+    float: left;
+}
+
+#info {
+    padding-right:10px;
+    border-right:solid 1px;
+    color:black;
+}
+
+#exit {
+    padding-left:15px;
+}
+
+#exit a:link{
+    text-decoration: none;
+    color: black;
+}
+
+#exit a:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    color:#5379ff;
+}
+
+/*页面主体*/
+#PageBody {
+    width:100%;
+    height:70%;
+    margin:0 auto;
+}
+body {
+    background-image: url(/resource/loginbg.png);
+    background:url(/resource/loginbg.png) repeat;
+    background-attachment:fixed
+
+}
+/*菜单栏*/
+#Sidebar {
+    width:20%;
+    height:100%;
+    margin:0 auto;
+    text-align: center;
+    float:left;
+    clear:left;
+}
+
+/*#Sidebar a{*/
+    /*display: block;*/
+    /*box-shadow: 10px 10px 10px dimgray;*/
+    /*border-radius: 25px;*/
+    /*width:80%;*/
+    /*height:8%;*/
+    /*margin-top:15%;*/
+    /*margin-left:6%;*/
+    /*text-decoration: none;*/
+    /*background-color: #ffc162;*/
+/*}*/
+
+/*#Sidebar p{*/
+    /*padding:10%;*/
+    /*color:black;*/
+/*}*/
+
+div.panel,a.flip {
+    margin:0 auto;
+    width:80%;
+    text-decoration: none;
+    background-color:#e5eecc;
+    border:solid 1px #c3c3c3;
+    box-shadow: 10px 10px 10px dimgray;
+    font-weight: bold;
+    color: black;
+}
+
+a.flip {
+    display: block;
+    margin-top:15%;
+    margin-bottom: 0%;
+    height: 7%;
+    border-radius: 25px;
+}
+
+a.flip p{
+    padding: 0;
+}
+
+#Sidebar a:hover{
+    background-color: #2324ff;
+}
+
+div.panel {
+    padding-top:10%;
+    margin-top:0%;
+    margin-bottom: 0%;
+    height:160px;
+    display:none;
+}
+
+div.panel ul{
+    margin:0 15% 0 0;
+    position:relative;
+    top:-6%;
+    left:-5%;
+    list-style: none;
+    white-space: nowrap;
+}
+
+div.panel ul ul{
+    list-style: disc;
+}
+
+div.panel li{
+    padding:4% 0;
+}
+
+#panel3,#panel4{
+    height: 120px;
+}
+/*内容*/
+#MainBody {
+    width:80%;
+    height: 100%;
+    margin:0 auto;
+    float: right;
+}
+
+#content{
+    width:100%;
+    height:100%;
+    overflow: scroll;
+}
+
+/*页面底部*/
+#Footer {
+    width:60%;
+    margin:0 auto;
+    height:6%;
+    background: #5690ff;
+    text-align: center;
+    font-size: large;
+    clear: both;
+    border-radius: 10px;
+    border-width: 2px;
+    margin-top:25%;
+}

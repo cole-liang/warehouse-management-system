@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.inputInfo{
+    width: 45%;
+    height: 420px;
+}
+
+.details{
+    margin-right: 0;
+}
+
+.validateProInfo{
+    font-size:small;
+    color: red;
+    margin-left:14%;
+}

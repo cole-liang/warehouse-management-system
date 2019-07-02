@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+#container {
+    margin:0 auto;
+}
+
+/*--------------------------标题--------------------------*/
+h2 {
+    text-align: center;
+}
+
+.details{
+    margin-right: 10px;
+}
+
