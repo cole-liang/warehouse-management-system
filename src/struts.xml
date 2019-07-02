@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+        <!-- 指定Web应用的默认编码，相当于调用request的setCharacterEncoding方法 -->
+        <constant name="struts.i18n.encoding" value="UTF-8" />
+        <!-- 设置浏览器是否缓存静态内容，默认值为true(生产环境下使用)，开发阶段最好关闭 -->
+        <constant name="struts.serve.static.browserCache" value="false" />
+        <!-- 当Struts2的配置文件修改后，系统是否自动重新加载配置文件，默认值为false(生产环境下使用)，开发阶段最好打开 -->
+        <constant name="struts.configuration.xml.reload" value="true" />
+        <!-- 开发模式下使用，这样可以打印出更详细的日志信息 -->
+        <constant name="struts.devMode" value="true" />
+        <!-- 默认的视图主题 -->
+        <constant name="struts.ui.theme" value="simple" />
+        <!-- 把Action对象交给Spring创建和管理 -->
+        <constant name="struts.objectFactory" value="spring" />
+        <!-- Struts2处理的请求后缀,默认值是action -->
+        <!--<constant name="struts.action.extension" value="do" />-->
+        <constant name="struts.objectFactory.spring.autowire.alwaysRespect" value="true"/>
+        <constant name="struts.locale" value="zh_CN"/>
+
+        <package name="globalPackage" extends="struts-default" abstract="true">
+                <global-results>
+                        <result name="login">index.jsp</result>
+                </global-results>
+        </package>
+
+        <package name="manage" extends="globalPackage" namespace="/manage">
+                <action name="login" class="edu.cqun.warehouse.action.LoginAction">
+                        <result name="success">main.jsp</result>
+                        <result name="error">loginfail.jsp</result>
+                </action>
+                <action name="instoreManager" class="edu.cqun.warehouse.action.InstoreManagerAcition">
+                        <result name="success">instoreManager.jsp</result>
+                </action>
+                <action name="showInstoreDetails" class="edu.cqun.warehouse.action.ShowInstoreDetailsAction">
+                        <result name="success">modifyInstoreSheet.jsp</result>
+                </action>
+                <action name="deleteInstoreSheet" class="edu.cqun.warehouse.action.DeleteInstoreSheetAction">
+                        <result name="instoreManager">instoreManager.jsp</result>
+                        <result name="checkInById">checkInById.jsp</result>
+                        <result name="checkInByDept">checkInByDept.jsp</result>
+                        <result name="checkInByTime">checkInByTime.jsp</result>
+                        <result name="checkInByChecker">checkInByChecker.jsp</result>
+                </action>
+        </package>
+
+        <package name="outstore" extends="globalPackage" namespace="/outstore">
+                <action name="outstoreManager" class="edu.cqun.warehouse.action.OutstoreManagerAcition">
+                        <result name="success">outstoreManager.jsp</result>
+                </action>
+                <action name="showOutstoreDetails" class="edu.cqun.warehouse.action.ShowOutstoreDetailsAction">
+                        <result name="success">modifyOutstoreSheet.jsp</result>
+                </action>
+                <action name="deleteOutstoreSheet" class="edu.cqun.warehouse.action.DeleteOutstoreSheetAction">
+                        <result name="outstoreManager">outstoreManager.jsp</result>
+                        <result name="checkOutById">checkOutById.jsp</result>
+                        <result name="checkOutByDept">checkOutByDept.jsp</result>
+                        <result name="checkOutByTime">checkOutByTime.jsp</result>
+                        <result name="checkOutByChecker">checkOutByChecker.jsp</result>
+                </action>
+        </package>
+        
+        <package name="storeAmount" extends="globalPackage" namespace="/storeAmount">
+                <action name="storeAmountManager" class="edu.cqun.warehouse.action.StoreAmountManagerAction">
+                        <result name="success">storeAmountManager.jsp</result>
+                </action>
+        </package>
+
+        <package name="product" extends="globalPackage" namespace="/product">
+                <action name="productManager" class="edu.cqun.warehouse.action.ProductManagerAcition">
+                        <result name="success">productManager.jsp</result>
+                </action>
+                <action name="addProduct" class="edu.cqun.warehouse.action.AddProductAction">
+                        <result name="success">productManager.jsp</result>
+                </action>
+        </package>
+
+        <package name="ajax" extends="struts-default,json-default" namespace="/ajax">
+                <!--=======================================VALIDATE===========================================-->
+                <action name="validateProId" class="edu.cqun.warehouse.action.ValidateProIdAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="validateInProModify" class="edu.cqun.warehouse.action.ValidateInProModifyAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="validateInProDelete" class="edu.cqun.warehouse.action.ValidateInProDeleteAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="validateInDelete" class="edu.cqun.warehouse.action.ValidateInDeleteAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="validateOutAdd" class="edu.cqun.warehouse.action.ValidateOutAddAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="validateOutModify" class="edu.cqun.warehouse.action.ValidateOutModifyAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="validateProAdd" class="edu.cqun.warehouse.action.ValidateProAddAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <!--=======================================VALIDATE===========================================-->
+                <!--=======================================INSTORE===========================================-->
+                <action name="addInProduct" class="edu.cqun.warehouse.action.AddInstoreProductAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="addInstoreSheet" class="edu.cqun.warehouse.action.AddInstoreSheetAction">
+                        <result name="success">manage/instoreManager.jsp</result>
+                </action>
+                <action name="modifyInstoreSheet" class="edu.cqun.warehouse.action.ModifyInstoreSheetAction">
+                        <result name="success">manage/instoreManager.jsp</result>
+                </action>
+                <action name="checkInById" class="edu.cqun.warehouse.action.CheckInByIdAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkInByDept" class="edu.cqun.warehouse.action.CheckInByDeptAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkInByChecker" class="edu.cqun.warehouse.action.CheckInByCheckerAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkInByTime" class="edu.cqun.warehouse.action.CheckInByTimeAction">
+                        <result name="success"></result>
+                </action>
+                <!--=======================================INSTORE===========================================-->
+                <!--=======================================OUTSTORE===========================================-->
+                <action name="addOutProduct" class="edu.cqun.warehouse.action.AddOutstoreProductAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <action name="addOutstoreSheet" class="edu.cqun.warehouse.action.AddOutstoreSheetAction">
+                        <result name="success">outstore/outstoreManager.jsp</result>
+                </action>
+                <action name="modifyOutstoreSheet" class="edu.cqun.warehouse.action.ModifyOutstoreSheetAction">
+                        <result name="success">outstore/outstoreManager.jsp</result>
+                </action>
+                <action name="checkOutById" class="edu.cqun.warehouse.action.CheckOutByIdAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkOutByDept" class="edu.cqun.warehouse.action.CheckOutByDeptAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkOutByChecker" class="edu.cqun.warehouse.action.CheckOutByCheckerAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkOutByTime" class="edu.cqun.warehouse.action.CheckOutByTimeAction">
+                        <result name="success"></result>
+                </action>
+                <!--=======================================OUTSTORE===========================================-->
+                <!--=======================================PRODUCT===========================================-->
+                <action name="checkProductById" class="edu.cqun.warehouse.action.CheckProductByIdAction">
+                        <result name="success"></result>
+                </action>
+                <action name="modifyProduct" class="edu.cqun.warehouse.action.ModifyProductAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkProductByName" class="edu.cqun.warehouse.action.CheckProductByNameAction">
+                        <result name="success"></result>
+                </action>
+                <!--=======================================PRODUCT===========================================-->
+                <!--=======================================STOREAMOUNT===========================================-->
+                <action name="modifyStoreAmount" class="edu.cqun.warehouse.action.ModifyStoreAmountAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkStoreById" class="edu.cqun.warehouse.action.CheckStoreByIdAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkStoreByName" class="edu.cqun.warehouse.action.CheckStoreByNameAction">
+                        <result name="success"></result>
+                </action>
+                <action name="checkStoreByTime" class="edu.cqun.warehouse.action.CheckStoreByTimeAction">
+                        <result name="success"></result>
+                </action>
+                <!--=======================================STOREAMOUNT===========================================-->
+                <!--=======================================SEARCHBOX===========================================-->
+                <action name="searchAllProduct" class="edu.cqun.warehouse.action.SearchAllProductAction">
+                        <result type="json">
+                                <param name="root">result</param>
+                        </result>
+                </action>
+                <!--=======================================SEARCHBOX===========================================-->
+        </package>
+</struts>

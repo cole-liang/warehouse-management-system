@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- 基本配置：JDBC方式 -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/warehouse</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- 配置二级缓存 -->
+        <!--<property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>-->
+        <!-- Hibernate4，这里和Hibernate3不一样，要特别注意！！！ -->
+        <!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</property>-->
+
+        <mapping class="edu.cqun.warehouse.entity.InstoreDetailsEntity"/>
+        <mapping class="edu.cqun.warehouse.entity.InstoreSheetEntity"/>
+        <mapping class="edu.cqun.warehouse.entity.OutstoreDetailsEntity"/>
+        <mapping class="edu.cqun.warehouse.entity.OutstoreSheetEntity"/>
+        <mapping class="edu.cqun.warehouse.entity.ProductEntity"/>
+        <mapping class="edu.cqun.warehouse.entity.StoreAmountEntity"/>
+        <mapping class="edu.cqun.warehouse.entity.UserEntity"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
